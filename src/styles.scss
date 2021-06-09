@@ -1,0 +1,106 @@
+$primary-color: black;
+$background-color: darkcyan;
+$secondary-color: white;
+$header-logo-width: 25%;
+
+h1, h2, span{
+    color: $secondary-color;
+}
+.main-header{
+    background-color: $background-color;
+}
+.header-logo img{
+    width: $header-logo-width;
+}
+input[type=search]:focus-visible{
+    outline: none;
+}
+input[type=search]{
+    background-color: #fff;
+    width: 30%;
+    padding: 10px;
+    border: 2px solid darkcyan;
+    border-radius: 25px 0 0 25px;
+}
+button{
+    background-color: darkcyan;
+    color: #fff;
+    width: 8%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 0 25px 25px 0;
+}
+.artist-search{
+    // background-image: url('./Components/Search/search-background-2.jpg');
+    // min-height: 100%;
+    // min-width: 1024px;
+    // width: 100%;
+    // height: auto;
+    // position: fixed;
+    // top: 73px;
+    // left: 0;
+    padding: 4% 0 4% 0;
+    position: relative;
+    z-index: 2;
+    // background-position: top;
+}
+.artist-search h1{
+    color: $primary-color;
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 71px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    cursor: pointer;
+    height: 422px;
+}
+.artist-bg{
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -157px;
+    background-position: center;
+    height: 420px;
+}
+.artist-profile-img, .artist-profile{
+    z-index: 1;
+    position: relative;
+    padding: 13% 0 0 0;
+}.artist-profile-img, .artist-profile, .artist-links{
+    z-index: 1;
+    position: relative;
+    padding: 13% 0 0 0;
+}
+.artist-profile-img {
+    text-align: right;
+}
+.artist-profile{
+    text-align: left;
+}
+.artist-profile-img img{
+    border-radius: 50%;
+}
+.artist-links .btn{
+    background-color: darkcyan;
+    color: #fff; 
+    display: block;
+    margin-top: 25px;
+    width: 85%;
+    height: 19%;
+    border: none;
+    border-radius: 100px;
+}
+.events-section{
+    padding: 5% 0;
+}
+.event-card{
+    box-shadow: 5px 10px #888888;
+    background-color: white;
+    border: 1px solid darkcyan;
+}
