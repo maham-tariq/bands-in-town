@@ -1,6 +1,4 @@
-import React from "react";
 import Moment from 'moment';
-import PropTypes from 'prop-types';
 import EventDate from './EventDate';
 import EventTime from './EventTime';
 
@@ -11,10 +9,9 @@ const Events = ( props ) => {
     {
         return(
             events.map((events, index) => {
-                console.log(events);
                 return(
-                    <div className="event-card">
-                    <div className="col-lg-12">
+                    <div key={index} className="event-card">
+                    <div key={index} className="col-lg-12">
                     <EventDate date={events.datetime} />
                     <EventTime time={events.datetime} />
                     <h4> {events.venue.name}</h4>
@@ -26,14 +23,9 @@ const Events = ( props ) => {
             })
         )
     }
-    else{
-        return(<h3> No Events Yet! </h3>)
+    else if(events.length === 0){
+        return(<h3> No Events Found! </h3>)
     }
-   
+
 }
-Events.propTypes = {
-    date: PropTypes.string.isRequired,
-    fromFormat: PropTypes.string,
-    toFormat: PropTypes.string,
-  };
 export default Events;

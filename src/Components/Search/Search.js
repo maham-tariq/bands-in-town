@@ -19,7 +19,6 @@ const Search = (props) => {
 
     return(
         <div className="artist-search">
-            {/* <h1> {props.text} </h1> */}
             <form className="">
                 <input value={searchValue} onChange={handleSearchInputChanges} type="search" />
                 <button onClick = {callSearchFunction} type="submit" value="SEARCH"> Search </button>

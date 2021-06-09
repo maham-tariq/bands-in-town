@@ -10,19 +10,20 @@ import LoadingBar from 'react-top-loading-bar';
 
 
 const App =() => {
-  const [loading, setLoading] = useState(null);
-  const [artist, setArtist] = useState([]);
-  const [events, setEvents] = useState([]);
-  const [responseCheck, setResponseCheck] = useState(true); 
-  const [progress, setProgress] = useState(0)
+  const [loading, setLoading] = useState(null); //State for Loading
+  const [artist, setArtist] = useState([]); //State for Storing Artist Data
+  const [events, setEvents] = useState([]); //State for Storing Events Data
+  const [responseCheck, setResponseCheck] = useState(false); //Response check to show artist related info on first load
+  const [progress, setProgress] = useState(0) //State for Loading Bar
 
   useEffect(() => {
-    search();
+    search(); //Getting search response for API
   }, []);
-  
-  const search = searchValue =>{
+
+  const search = searchValue =>{  //Fetching API Data and setting state var.
     setLoading(false);
 
+    //Fetching Artist data based on search input
     axios.get(`https://rest.bandsintown.com/artists/${searchValue}/?app_id=f7bbe9873702344ffc21cc961eeb7475`)
     .then((response) => {
         if( response.data.name !== 'Undefined')
@@ -36,42 +37,41 @@ const App =() => {
         }
     })
     .catch((error) => {
-      console.log("Fail");
         setLoading(false);
     });
 
-    
+    //Fetching Events data based on search input
     axios.get(`https://rest.bandsintown.com/artists/${searchValue}/events/?app_id=f7bbe9873702344ffc21cc961eeb7475`)
     .then((response) => {
-        // const allEvents = response.data.events.allEvents;
         setEvents(response.data);
         setLoading(true);
         setProgress(100);
 
     })
     .catch((error) => {
-      console.log("Fail");
         setLoading(false);
     });
   };
- 
+
   return(
-    
+
     <div className="App">
-      <Header text="BIT APP" />
+      { loading &&
+          <LoadingBar height="3px"  color="#f5e100" progress={progress} onLoaderFinished={() => setProgress(0)} />
+        }
+      <Header/>
+      <div>
       <Search search={search} text="Search your favourite artists!" />
        {/* <pre>
         <code>
           {artist && JSON.stringify(artist, null, 4)}
         </code>
       </pre> */}
-        { loading && 
-          <LoadingBar height="3px"  color="#f5e100" progress={progress} onLoaderFinished={() => setProgress(0)} />
-        }
+
         { loading && responseCheck && <Artist artist = {artist} /> }
-        
+        </div>
        <div className="container events-section">
-           <div className="row row-width">
+           <div className="row">
              { loading && responseCheck && <Events events = {events} /> }
            </div>
         </div>

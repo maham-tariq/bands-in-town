@@ -4,14 +4,14 @@ const numberFormat = (value) =>
   new Intl.NumberFormat('en-IN', {
     style: 'decimal',
   }).format(value);
-  
+
 const imagePlaceholder = require('./person-placeholder.jpg');
 
 const Artist = ({ artist }) => {
     const artistThumbnail = artist.image_url === undefined ? imagePlaceholder : artist.image_url;
     var styles = {backgroundImage: `url(${artistThumbnail})`}
 
-    if(artist.length > 0)
+    if(artist.name !== undefined)
     {
     return(
         <div style={styles} className="artist-bg"><div className="overlay"></div>
@@ -27,15 +27,15 @@ const Artist = ({ artist }) => {
                 </div>
                 <div className="col-lg-2 artist-links">
                     <a className="btn btn-primary" href={artist.url} role="button"> Bands In Town </a>
-                     <a className="btn btn-primary" href={artist.url} role="button"> Facebook Link </a>
+                     <a className="btn btn-primary" href={artist.facebook_page_url} role="button"> Facebook Link </a>
                 </div>
                 </div>
             </div>
         </div>
         )
     }
-    else{
-        return(<h3> No artist by this name! </h3>)
+    else if(artist.name === undefined){
+        return(<h3> No artists found by this name! </h3>)
     }
 }
 
