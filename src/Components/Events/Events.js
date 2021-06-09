@@ -13,12 +13,14 @@ const Events = ( props ) => {
             events.map((events, index) => {
                 console.log(events);
                 return(
-                    <div className="col-lg-6 event-card">
+                    <div className="event-card">
+                    <div className="col-lg-12">
                     <EventDate date={events.datetime} />
                     <EventTime time={events.datetime} />
                     <h4> {events.venue.name}</h4>
                     <p> {events.venue.city}, {events.venue.country}</p>
                     <a className="btn btn-primary" href={events.url} role="button"> Book Ticket </a>
+               </div>
                </div>
                 )
             })

@@ -68,11 +68,11 @@ const App =() => {
         { loading && 
           <LoadingBar height="3px"  color="#f5e100" progress={progress} onLoaderFinished={() => setProgress(0)} />
         }
-        { responseCheck && <Artist artist = {artist} /> }
+        { loading && responseCheck && <Artist artist = {artist} /> }
         
        <div className="container events-section">
-           <div className="row">
-             { responseCheck && <Events events = {events} /> }
+           <div className="row row-width">
+             { loading && responseCheck && <Events events = {events} /> }
            </div>
         </div>
         {/* <pre>

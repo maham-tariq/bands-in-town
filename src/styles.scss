@@ -51,7 +51,7 @@ button{
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 71px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -67,6 +67,8 @@ button{
     margin-top: -157px;
     background-position: center;
     height: 420px;
+    position: relative;
+    top: -43px;
 }
 .artist-profile-img, .artist-profile{
     z-index: 1;
@@ -86,7 +88,7 @@ button{
 .artist-profile-img img{
     border-radius: 50%;
 }
-.artist-links .btn{
+.artist-links .btn, .event-card .btn{
     background-color: darkcyan;
     color: #fff; 
     display: block;
@@ -96,11 +98,19 @@ button{
     border: none;
     border-radius: 100px;
 }
+.event-card .btn{
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 5px;
+}
 .events-section{
-    padding: 5% 0;
+    padding: 1% 0;
 }
 .event-card{
-    box-shadow: 5px 10px #888888;
+    box-shadow: 0 6px 27px -17px #000433;
     background-color: white;
     border: 1px solid darkcyan;
+    margin: 25px 57px;
+    width: 40%;
+    padding: 25px 0;
 }
