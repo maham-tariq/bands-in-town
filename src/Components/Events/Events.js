@@ -11,7 +11,7 @@ const Events = ( props ) => {
             events.map((events, index) => {
                 return(
                     <div key={index} className="event-card">
-                    <div key={index} className="col-lg-12">
+                    <div key={index} className="col-lg-12 col-md-12">
                     <EventDate date={events.datetime} />
                     <EventTime time={events.datetime} />
                     <h4> {events.venue.name}</h4>

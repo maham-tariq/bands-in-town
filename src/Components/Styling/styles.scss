@@ -53,25 +53,22 @@ button{
     backdrop-filter: blur(5px);
     z-index: 1;
     cursor: pointer;
-    height: 422px;
+    height: 514px;
 }
 .artist-bg{
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: -157px;
     background-position: center;
-    height: 420px;
+    height: 514px;
     position: relative;
-    top: -51px;
 }
 .artist-profile-img, .artist-profile{
     z-index: 1;
-    position: relative;
-    padding: 13% 0 0 0;
 }.artist-profile-img, .artist-profile, .artist-links{
     z-index: 1;
-    position: relative;
-    padding: 13% 0 0 0;
+}
+.hide{
+    display: none;
 }
 .artist-profile-img {
     text-align: right;

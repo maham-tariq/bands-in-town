@@ -9,12 +9,12 @@ const imagePlaceholder = require('./person-placeholder.jpg');
 
 const Artist = ({ artist }) => {
     const artistThumbnail = artist.image_url === undefined ? imagePlaceholder : artist.image_url;
-    var styles = {backgroundImage: `url(${artistThumbnail})`}
+    // var styles = {backgroundImage: `url(${artistThumbnail})`}
 
     if(artist.name !== undefined)
     {
     return(
-        <div style={styles} className="artist-bg"><div className="overlay"></div>
+        // <div style={styles} className="artist-bg"><div className="overlay"></div>
             <div className="container">
                 <div className="row">
                 <div className="col-lg-4 artist-profile-img">
@@ -31,7 +31,7 @@ const Artist = ({ artist }) => {
                 </div>
                 </div>
             </div>
-        </div>
+        // </div>
         )
     }
     else if(artist.name === undefined){

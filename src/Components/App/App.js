@@ -52,26 +52,26 @@ const App =() => {
         setLoading(false);
     });
   };
-
+  var styles = {backgroundImage: `url(${artist.image_url})`}
   return(
 
     <div className="App">
       { loading &&
           <LoadingBar height="3px"  color="#f5e100" progress={progress} onLoaderFinished={() => setProgress(0)} />
         }
+
       <Header/>
-      <div>
+      <div style={styles} className="artist-bg">{ artist.name !== undefined ? <div className="overlay" ></div>: <div></div>}
       <Search search={search} text="Search your favourite artists!" />
        {/* <pre>
         <code>
           {artist && JSON.stringify(artist, null, 4)}
         </code>
       </pre> */}
-
         { loading && responseCheck && <Artist artist = {artist} /> }
         </div>
        <div className="container events-section">
-           <div className="row">
+           <div className="row mr-0 ml-0">
              { loading && responseCheck && <Events events = {events} /> }
            </div>
         </div>
