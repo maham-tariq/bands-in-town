@@ -7,10 +7,12 @@ const Search = (props) => {
         setSearchValue(e.target.value);
     }
 
+    //Reseting field after every input
     const resetInputField = () => {
         setSearchValue("");
     }
 
+    //Take search input
     const callSearchFunction = (e) => {
         e.preventDefault();
         props.search(searchValue, e.target.value);

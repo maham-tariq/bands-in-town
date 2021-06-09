@@ -46,7 +46,6 @@ const App =() => {
         setEvents(response.data);
         setLoading(true);
         setProgress(100);
-
     })
     .catch((error) => {
         setLoading(false);
@@ -56,30 +55,17 @@ const App =() => {
   return(
 
     <div className="App">
-      { loading &&
-          <LoadingBar height="3px"  color="#f5e100" progress={progress} onLoaderFinished={() => setProgress(0)} />
-        }
-
+      { loading && <LoadingBar height="3px"  color="#f5e100" progress={progress} onLoaderFinished={() => setProgress(0)} />}
       <Header/>
       <div style={styles} className="artist-bg">{ artist.name !== undefined ? <div className="overlay" ></div>: <div></div>}
-      <Search search={search} text="Search your favourite artists!" />
-       {/* <pre>
-        <code>
-          {artist && JSON.stringify(artist, null, 4)}
-        </code>
-      </pre> */}
-        { loading && responseCheck && <Artist artist = {artist} /> }
-        </div>
+        <Search search={search}/>
+        {loading && responseCheck && <Artist artist = {artist} /> }
+      </div>
        <div className="container events-section">
            <div className="row mr-0 ml-0">
              { loading && responseCheck && <Events events = {events} /> }
            </div>
         </div>
-        {/* <pre>
-        <code>
-          {events && JSON.stringify(events, null, 4)}
-        </code>
-      </pre> */}
     </div>
   );
 };
